@@ -6,6 +6,8 @@ import Search from "./Search";
 import Error from "./Error";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import AppStore from "./utils/AppStore";
 
 const RestCards = () => {
   return (
@@ -50,10 +52,12 @@ const Body = () => {
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={AppStore}>
+      <div className="App">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
